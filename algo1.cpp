@@ -44,11 +44,29 @@ int find_starting_city(vector<int>& city_distances, vector<int>& fuel, int mpg) 
 
     return -1; // no valid starting city found
 }
-
 int main() {
-    vector<int> city_distances = {5, 20, 15, 10, 15};
-    vector<int> fuel = {1, 2, 1, 0, 3};
+    vector<int> city_distances = {0, 0, 0, 0, 0};
+    vector<int> fuel = {0, 0, 0, 0, 0};
     int mpg = 10;
+    
+    cout << "City Distances (5) = ";
+    vector<int> city_distance(5);
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> city_distances[i];
+    }
+    
+    cout <<"Fuel (5)= ";
+     for (int i = 0; i < 5; i++)
+     {
+         cin >> fuel[i];
+     }
+    
+    cout << "MPG(1) = ";
+     for (int i = 0; i < 1; i++)
+     {
+         cin >> mpg;
+     }
     int starting_city = find_starting_city(city_distances, fuel, mpg);
 
     if (starting_city >= 0) {
