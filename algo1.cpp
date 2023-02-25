@@ -4,9 +4,9 @@ using namespace std;
 
 // Big O is O(N^2)
 
-int find_starting_city(vector<int>& city_distances, vector<int>& fuel, int mpg) {
+int findCity(vector<int>& cityDistances, vector<int>& fuel, int mpg) {
     
-    int n = city_distances.size(); // number of cities
+    int n = cityDistances.size(); // number of cities
 
     for (int start = 0; start < n; start++) {  //)(O)n level 1 Big O Complexity
         
@@ -22,7 +22,7 @@ int find_starting_city(vector<int>& city_distances, vector<int>& fuel, int mpg) 
             
             int gas = fuel[j]; // gas available at current city
             
-            int distance = city_distances[j]; // distance to next city
+            int distance = cityDistances[j]; // distance to next city
             
             tank += gas * mpg - distance; // updates gas after traveling to next city
 
@@ -46,15 +46,14 @@ int find_starting_city(vector<int>& city_distances, vector<int>& fuel, int mpg) 
     return -1; // no valid starting city found
 }
 int main() {
-    vector<int> city_distances = {0, 0, 0, 0, 0};
+    vector<int> cityDistances = {0, 0, 0, 0, 0};
     vector<int> fuel = {0, 0, 0, 0, 0};
     int mpg = 10;
     
     cout << "City Distances (5) = ";
-    vector<int> city_distance(5);
     for (int i = 0; i < 5; i++) // (O)1 Big O Complexity
     {
-        cin >> city_distances[i]; //User input for city distances
+        cin >> cityDistances[i]; //User input for city distances
     }
     
     cout <<"Fuel (5)= ";
@@ -67,7 +66,7 @@ int main() {
 
          cin >> mpg; //User input for MPG
     
-    int starting_city = find_starting_city(city_distances, fuel, mpg);
+    int starting_city = findCity(cityDistances, fuel, mpg);
 
     if (starting_city >= 0) {
         cout << "Preferred starting city is " << starting_city << endl;
