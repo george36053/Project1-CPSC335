@@ -12,9 +12,7 @@ int findCity(vector<int>& cityDistances, vector<int>& fuel, int mpg) {
         
         int tank = 0; // gas in tank
         
-        int valid = 1; // flag indicating if current starting city is valid
-        
-        
+        int valid = 1; // current starting city is valid
 
         for (int i = 0; i < n; i++) { //O(n) level 2 Big O Complexity
             
