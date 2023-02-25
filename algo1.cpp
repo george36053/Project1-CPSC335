@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <climits> // for INT_MAX
 using namespace std;
+
+// Big O is O(N^2)
 
 int find_starting_city(vector<int>& city_distances, vector<int>& fuel, int mpg) {
     
     int n = city_distances.size(); // number of cities
 
-    for (int start = 0; start < n; start++) {
+    for (int start = 0; start < n; start++) {  //)(O)n level 1 Big O Complexity
         
         int tank = 0; // gas in tank
         
@@ -15,7 +16,7 @@ int find_starting_city(vector<int>& city_distances, vector<int>& fuel, int mpg) 
         
         
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { //O(n) level 2 Big O Complexity
             
             int j = (start + i) % n; // index of current city
             
@@ -23,13 +24,13 @@ int find_starting_city(vector<int>& city_distances, vector<int>& fuel, int mpg) 
             
             int distance = city_distances[j]; // distance to next city
             
-            tank += gas * mpg - distance; // update gas in tank after traveling to next city
+            tank += gas * mpg - distance; // updates gas after traveling to next city
 
 
 
             if (tank < 0) {
                 
-                valid = 0; // current starting city is not valid
+                valid = 0; // Invalid current city
                 
                 break;
             }
@@ -51,22 +52,21 @@ int main() {
     
     cout << "City Distances (5) = ";
     vector<int> city_distance(5);
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++) // (O)1 Big O Complexity
     {
-        cin >> city_distances[i];
+        cin >> city_distances[i]; //User input for city distances
     }
     
     cout <<"Fuel (5)= ";
-     for (int i = 0; i < 5; i++)
+     for (int i = 0; i < 5; i++) // (O)1 Big O Complexity
      {
-         cin >> fuel[i];
+         cin >> fuel[i]; //User input for fuel
      }
     
     cout << "MPG(1) = ";
-     for (int i = 0; i < 1; i++)
-     {
-         cin >> mpg;
-     }
+
+         cin >> mpg; //User input for MPG
+    
     int starting_city = find_starting_city(city_distances, fuel, mpg);
 
     if (starting_city >= 0) {
