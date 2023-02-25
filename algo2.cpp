@@ -7,18 +7,17 @@
 
 using namespace std; 
 
-
-unordered_set<int> combineArrays(const vector<int>& set1, const std::vector<int>& set2) { //takes in two sets and combines them to one
-    std::vector<std::vector<int>> arrays = {set1, set2};
-    return inputtedArrays(arrays);
-}
-
 unordered_set<int> inputtedArrays(const vector<vector<int>>& arrays) { //takes the inputted arrays and makes a single list
     unordered_set<int> inputtedSet;
     for (const auto& array : arrays) {
         inputtedSet.insert(array.begin(), array.end());
     }
     return inputtedSet;
+}
+
+unordered_set<int> combineArrays(const vector<int>& set1, const std::vector<int>& set2) { //takes in two sets and combines them to one
+    std::vector<std::vector<int>> arrays = {set1, set2};
+    return inputtedArrays(arrays);
 }
 
 vector<pair<int, int>> get_unavailabilities(vector<array<int, 2>> schedules, int soonest, int latest, int duration){ 
