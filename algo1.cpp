@@ -64,10 +64,10 @@ int main() {
 
          cin >> mpg; //User input for MPG
     
-    int starting_city = findCity(cityDistances, fuel, mpg);
+    int startingCity = findCity(cityDistances, fuel, mpg);
 
-    if (starting_city >= 0) {
-        cout << "Preferred starting city is " << starting_city << endl;
+    if (startingCity >= 0) {
+        cout << "Preferred starting city is " << startingCity << endl;
     } else {
         cout << "No valid starting city found" << endl;
     }
