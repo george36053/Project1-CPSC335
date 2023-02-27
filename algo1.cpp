@@ -9,18 +9,20 @@ int findCity(vector<int>& cityDistances, vector<int>& fuel, int mpg) {
     int n = cityDistances.size(); // number of cities
 
     for (int start = 0; start < n; start++) {  //)(O)n level 1 Big O Complexity
-        
+
+        int valid = 1; // present starting city is valid
+
         int tank = 0; // gas in tank
         
-        int valid = 1; // current starting city is valid
+        
 
         for (int i = 0; i < n; i++) { //O(n) level 2 Big O Complexity
             
-            int j = (start + i) % n; // index of current city
-            
-            int gas = fuel[j]; // gas available at current city
-            
+            int j = (start + i) % n; // index of present city
+
             int distance = cityDistances[j]; // distance to next city
+
+            int gas = fuel[j]; // gas available at present city
             
             tank += gas * mpg - distance; // updates gas after traveling to next city
 
@@ -28,7 +30,7 @@ int findCity(vector<int>& cityDistances, vector<int>& fuel, int mpg) {
 
             if (tank < 0) {
                 
-                valid = 0; // Invalid current city
+                valid = 0; // Invalid present city
                 
                 break;
             }
@@ -67,9 +69,9 @@ int main() {
     int startingCity = findCity(cityDistances, fuel, mpg);
 
     if (startingCity >= 0) {
-        cout << "Preferred starting city is " << startingCity << endl;
+        cout << "The preferred starting city is " << startingCity << endl;
     } else {
-        cout << "No valid starting city found" << endl;
+        cout << "No valid preferred city." << endl;
     }
 
     return 0;
